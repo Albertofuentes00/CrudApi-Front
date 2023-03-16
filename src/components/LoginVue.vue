@@ -81,7 +81,7 @@ font-size: 0.8em;
 div#app div#login div#form input {
   background-color: #613a5a;
   border: none;
-  color: #000000;
+  color: #ffffff;
   font-size: 1em;
   margin-bottom: 20px;
   border-radius: 4px;

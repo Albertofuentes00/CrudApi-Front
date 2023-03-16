@@ -1,11 +1,6 @@
 <script setup>
 import WelcomeItem from './WelcomeItem.vue'
-import DocumentationIcon from './icons/IconDocumentation.vue'
-import ToolingIcon from './icons/IconTooling.vue'
-import EcosystemIcon from './icons/IconEcosystem.vue'
-import CommunityIcon from './icons/IconCommunity.vue'
-import SupportIcon from './icons/IconSupport.vue'
-import TrashIcon from './New Icons/TrashIcon.vue'
+import WrongIcon from './New Icons/TrashIcon.vue'
 </script>
 
 <template>
@@ -13,7 +8,7 @@ import TrashIcon from './New Icons/TrashIcon.vue'
 
   <WelcomeItem>
     <template #icon>
-      <EcosystemIcon />
+      <WrongIcon />
     </template>
     <template #heading>???</template>
     01101000 01101111 01101100 01100001
@@ -21,7 +16,7 @@ import TrashIcon from './New Icons/TrashIcon.vue'
 
   <WelcomeItem>
     <template #icon>
-      <TrashIcon />
+      <WrongIcon />
     </template>
     <template #heading>???</template>
 
@@ -32,7 +27,7 @@ import TrashIcon from './New Icons/TrashIcon.vue'
 
   <WelcomeItem>
     <template #icon>
-      <TrashIcon />
+      <WrongIcon />
     </template>
     <template #heading>???</template>
     01010011 01101001 00100000 01101100 01101111 01100111 01110010 01100001 01110011 
