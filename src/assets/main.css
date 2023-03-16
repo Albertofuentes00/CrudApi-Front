@@ -1,23 +1,34 @@
 @import './base.css';
 
+body{
+  background-image: url('./Glitch-img.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
 #app {
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-
+  font-family: VCR OSD Mono;
   font-weight: normal;
+  color: #ffffff;
+  
+  
 }
+
 
 a,
 .green {
   text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
+  color: rgb(255, 255, 255);
   transition: 0.4s;
+  font-family: VCR OSD Mono;
 }
 
 @media (hover: hover) {
   a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
+    background-color: hsla(310, 94%, 52%, 0.911);
   }
 }
 
@@ -34,4 +45,20 @@ a,
   }
 }
 
+html, body{
+  height:100%;
+}
 
+#background{
+background-image: url("./Glitch-img.jpg");
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: fixed;
+background-size: cover;
+height: 100%;
+}
+
+#background p{
+text-align:center;
+font-size:20px;
+}

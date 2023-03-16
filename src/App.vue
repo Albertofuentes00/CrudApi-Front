@@ -5,14 +5,13 @@ import HelloWorld from './components/HelloWorld.vue'
 
 <template>
   <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+    <img alt="Beto logo" class="logo" src="@/assets/LOGO_Scale.png" width="250" height="250" />
 
     <div class="wrapper">
-      <HelloWorld msg="You did it!" />
+      <HelloWorld msg="ERROR 404" />
 
       <nav>
         <RouterLink to="/">Home</RouterLink>
-        <RouterLink to="/about">About</RouterLink>
         <RouterLink to="/login">Login</RouterLink>
 
       </nav>
@@ -41,7 +40,7 @@ nav {
 }
 
 nav a.router-link-exact-active {
-  color: var(--color-text);
+  color: hsla(310, 94%, 52%, 0.911);;
 }
 
 nav a.router-link-exact-active:hover {

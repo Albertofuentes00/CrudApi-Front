@@ -33,10 +33,14 @@ i {
 }
 
 h3 {
-  font-size: 1.2rem;
+  font-size: 2.5rem;
   font-weight: 500;
   margin-bottom: 0.4rem;
-  color: var(--color-heading);
+  font-family: VCR OSD Mono;
+  color: #FFFFFF;
+  stroke: #000000;
+  border-color: #000000;
+  border-radius: 10px 0px 39px 22px;
 }
 
 @media (min-width: 1024px) {

@@ -4,7 +4,10 @@ import TheWelcome from '../components/LoginVue.vue'
 </script>
 
 <template>
+  
   <main>
     <LoginVue />
   </main>
+
 </template>
+
