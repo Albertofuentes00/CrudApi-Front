@@ -5,16 +5,15 @@
                   <label for="abrir-cerrar">&#9776; <span class="abrir">Abrir</span><span class="cerrar">Cerrar</span></label>
                     <div id="sidebar" class="sidebar">
                         <div class="Hola">
-                          <li><img id="icon" src="C:\Users\fuent\Downloads\CrudApi-Front\CrudApi-Front\src\assets\LOGO_Scale.png"></li>
+                          <li><img id="icon" src='src\assets\LOGO_Scale.png'></li>
                           <li><p id="Beto">Beto</p></li>
                         </div>
                      <ul class="menu"> 
                         <!--donde estan los simbolos de gato se pone la direcciona que se redireccionara-->
-                         <li><a href="/Home/IndexAdmin" itemid="User"><i class="fa-solid fa-house"></i> Home</a></li>
-                         <li><a href="/Login/Usuarios" itemid="User"><i class="fa-solid fa-user"></i> usuarios</a></li>
-                         <li><a href="/Roles/Index" itemid="Destino"><i class="fa-solid fa-person"></i> Roles</a></li>
-                         <li><a href="/Destinos/Index" itemid="Destino"><i class="fa-solid fa-location-dot"></i> Destinos</a></li>
-                         <li><a href="/Home/Index" itemid="Destino"><i class="fa-solid fa-xmark"></i> Salir</a></li>
+                         <li><li><RouterLink to="/dashboard">Home</RouterLink></li></li>
+                         <li><li><RouterLink to="/listar">Listar</RouterLink></li></li>
+                         <li><li><RouterLink to="/crear">Crear</RouterLink></li></li>
+                         <li><li><RouterLink to="/">Salir</RouterLink></li></li>
                       </ul>
                      </div>
         </main>
@@ -50,8 +49,11 @@ label[for="abrir-cerrar"] {
     background-color:#9e0191;
     font-family: VCR OSD Mono;
     color:#fff;
-    display:inline-block;
-    width:100%;
+    display:inline-bloc;
+    position: fixed;
+    width:10000px;
+    top: 0%;
+    left: 0%;
 
 }
 
@@ -62,7 +64,7 @@ label[for="abrir-cerrar"] {
 #sidebar {
     width:0;
     font-family: VCR OSD Mono;
-    background-image: url("C:\Users\fuent\Downloads\CrudApi-Front\CrudApi-Front\src\assets\Glitch-img.jpg");
+    background-color: #080808;
 }
 
 #contenido {
@@ -174,4 +176,3 @@ h1 {
 
 
 </style>
-

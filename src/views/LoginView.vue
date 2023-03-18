@@ -1,13 +1,10 @@
 <script setup>
-import LoginVue from '../components/LoginVue.vue';
-import TheWelcome from '../components/LoginVue.vue'
+import x from '../components/Login.vue'
 </script>
 
 <template>
   
-  <main>
-    <LoginVue />
-  </main>
+    <x/>
 
 </template>
 
