@@ -1,31 +1,34 @@
 <template>
     <div>
       <div class="card">
-        <div class="card-header">Articulos</div>
+        <div class="card-header">Usuarios</div>
   
         <div class="card_body">
           <table class="table">
             <thead>
               <tr>
                 <th>ID</th>
-                <th>Name</th>
-                <th>Proveedor</th>
-                <th>Precio</th>
-                <th>Acciones</th>
+                <th>User</th>
+                <th>Password</th>
+                <th>FechaRegistro</th>
+                <th>ID Empleado</th>
+                <th>ID Rol</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="articulo in articulos" :key="articulo.id">
-                <td>{{ articulo.id }}</td>
-                <td>{{ articulo.name }}</td>
-                <td>{{ articulo.proveedor }}</td>
-                <td>{{ articulo.precio }}</td>
+                <td>{{ usuario.id }}</td>
+                <td>{{ usuario.user }}</td>
+                <td>{{ usuario.password }}</td>
+                <td>{{ usuario.fechaRegistro }}</td>
+                <td>{{ usuario.idEmpleado }}</td>
+                <td>{{ usuario.idRol }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
                     |<button
                       type="button"
-                      v-on:click="borrarArticulo(articulo.id)"
+                      v-on:click="borrarUsuario(usuario.id)"
                       class="btn btn-danger"
                     >
                       Eliminar</button
@@ -69,3 +72,12 @@ export default {
   },
 };
 </script>
+
+<style>
+
+  .card-style{
+    color: black;
+  }
+
+
+</style>
