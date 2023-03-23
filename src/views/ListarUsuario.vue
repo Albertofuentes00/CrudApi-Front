@@ -16,7 +16,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="articulo in articulos" :key="articulo.id">
+              <tr v-for="usuario in usuario" :key="usuario.id">
                 <td>{{ usuario.id }}</td>
                 <td>{{ usuario.user }}</td>
                 <td>{{ usuario.password }}</td>
@@ -33,6 +33,13 @@
                     >
                       Eliminar</button
                     >|
+                    |<button
+                      type="button"
+                      v-on:click="borrarUsuario(usuario.id)"
+                      class="btn btn-warning"
+                    >
+                      Editar</button
+                    >|
                   </div>
                 </td>
               </tr>
@@ -48,24 +55,24 @@ import axios from "axios";
 export default {
   data() {
     return {
-      articulos: [],
+      usuario: [],
     };
   },
   created: function () {
-    this.consultarArticulos();
+    this.consultarUsuarios();
   },
   methods: {
-    consultarArticulos() {
-      axios.get("https://localhost:7053/articulos").then((result) => {
-        console.log(result.data);
-        this.articulos = result.data;
+    consultarUsuarios() {
+      axios.get("https://localhost:7204/Usuario").then((result) => {
+        console.log(result.data.result);
+        this.usuario = result.data.result;
       });
     },
 
     borrarArticulo(id) {
       console.log(id);
 
-      axios.delete("https://localhost:7053/articulos/borrar/" + id);
+      axios.delete("https://localhost:7204/Usuario/Borrar/" + id);
 
       window.location.href = "Listar";
     },

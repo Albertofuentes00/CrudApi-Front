@@ -1,7 +1,7 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/LoginView.vue'
 import Dashboard from '../views/DashboardView.vue'
-import crear_user from "../views/CrearUsuario.vue"
+import CrearUsuario from "../views/CrearUsuario.vue"
 import ListarUsuario from '../views/ListarUsuario.vue'
 
 
@@ -21,7 +21,7 @@ const router = createRouter({
     {
       path: '/crear',
       name: 'crear',
-      component: crear_user
+      component: CrearUsuario
     },
     {
       path: '/listar',

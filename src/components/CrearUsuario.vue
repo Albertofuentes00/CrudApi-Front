@@ -24,9 +24,9 @@
               <input
                 type="text"
                 class="form-control"
-                name="password"
-                id="password"
-                v-model="usuario.password"
+                name="Password"
+                id="Password"
+                v-model="articulo.password"
                 aria-describedby="helpId"
                 placeholder="Proveedor"
               />
@@ -122,9 +122,9 @@
           .post("https://localhost:7204/Usuario", datosEnviar)
           .then((result) => {
             console.log(result);
-            window.location.href = "Listar";
+            window.location.href = "listar";
           });
       },
     },
   };
-  </script> 
+  </script>

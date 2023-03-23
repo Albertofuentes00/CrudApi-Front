@@ -12,7 +12,7 @@ body{
   padding: 2rem;
   font-family: VCR OSD Mono;
   font-weight: normal;
-  color: #ffffff;
+  color: #000000;
   
   
 }
@@ -63,3 +63,6 @@ text-align:center;
 font-size:20px;
 }
   
+div.card{
+  size: 100px;
+}
