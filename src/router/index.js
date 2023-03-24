@@ -3,6 +3,8 @@ import Login from '../views/LoginView.vue'
 import Dashboard from '../views/DashboardView.vue'
 import CrearUsuario from "../views/CrearUsuario.vue"
 import ListarUsuario from '../views/ListarUsuario.vue'
+import CrearDepartamento from '../views/CrearDepartamento.vue'
+import ListarDepartamento from '../views/ListarDepartamento.vue'
 
 
 const router = createRouter({
@@ -27,6 +29,16 @@ const router = createRouter({
       path: '/listar',
       name: 'listar',
       component: ListarUsuario
+    },
+    {
+      path: '/creardepartment',
+      name: 'creardepartment',
+      component: CrearDepartamento
+    },
+    {
+      path: '/listardepartment',
+      name: 'listardepartment',
+      component: ListarDepartamento
     }
   ]
 })

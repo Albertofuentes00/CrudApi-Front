@@ -11,8 +11,25 @@
                      <ul class="menu"> 
                         <!--donde estan los simbolos de gato se pone la direcciona que se redireccionara-->
                          <li><li><RouterLink to="/dashboard">Home</RouterLink></li></li>
+                         <hr id="line" size="2px" color="white" />
+                         <li id="Section"><p>Usuarios</p></li>
                          <li><li><RouterLink to="/listar">Listar</RouterLink></li></li>
                          <li><li><RouterLink to="/crear">Crear</RouterLink></li></li>
+                         <hr id="line" size="2px" color="white" />
+                         <li id="Section"><p>Clientes</p></li>
+                         <hr id="line" size="2px" color="white" />
+                         <li id="Section"><p>Empleados</p></li>
+                         <hr id="line" size="2px" color="white" />
+                         <li id="Section"><p>Facturas</p></li>
+                         <hr id="line" size="2px" color="white" />
+                         <li id="Section"><p>Roles</p></li>
+                         <hr id="line" size="2px" color="white" />
+                         <li id="Section"><p>Puestos</p></li>
+                         <hr id="line" size="2px" color="white" />
+                         <li id="Section"><p>Departamentos</p></li>
+                         <li><li><RouterLink to="/listar">Listar</RouterLink></li></li>
+                         <li><li><RouterLink to="/creardepartment">Crear</RouterLink></li></li>
+                         <hr id="line" size="2px" color="white" />
                          <li><li><RouterLink to="/">Salir</RouterLink></li></li>
                       </ul>
                      </div>
@@ -174,5 +191,12 @@ h1 {
   left: 30%; */
 }
 
+#Section{
+    color: #d9a9f0;
+}
+
+#line{
+    color: #ffffff;
+}
 
 </style>

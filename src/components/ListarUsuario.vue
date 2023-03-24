@@ -16,7 +16,7 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="usuario in usuario" :key="usuario.id">
+              <tr v-for="usuario in usuarios" :key="usuario.id">
                 <td>{{ usuario.id }}</td>
                 <td>{{ usuario.user }}</td>
                 <td>{{ usuario.password }}</td>
@@ -56,7 +56,7 @@ import axios from "axios";
 export default {
   data() {
     return {
-      usuario: [],
+      usuarios: [],
     };
   },
   created: function () {
@@ -66,14 +66,15 @@ export default {
     consultarUsuario() {
       axios.get("https://localhost:7204/Usuario").then((result) => {
         console.log(result.data.result);
-        this.usuario = result.data.result;
+        this.usuarios = result.data.result;
+        console.log(usuario[0].id)
       });
     },
 
     borrarUsuario(id) {
       console.log(id);
 
-      axios.delete("https://localhost:7204/Usuario/Borrar/" + id);
+      axios.delete("https://localhost:7204/Usuario/Borrar/" + id.toString());
 
       window.location.href = "listar";
     },
