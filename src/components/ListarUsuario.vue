@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="card">
-        <div class="card-header">Usuarios</div>
+        <div class="card-header">USUARIOS</div>
   
         <div class="card_body">
           <table class="table">

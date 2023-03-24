@@ -17,6 +17,18 @@ body{
   
 }
 
+#app thead{
+  font-size: 20px;
+}
+
+.card-header{
+  font-size: 25px;
+}
+
+.card{
+  height: 600px;
+  width: 1300px;
+}
 
 a,
 .green {

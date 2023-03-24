@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="card">
-        <div class="card-header">Usuarios</div>
+        <div class="card-header">USUARIOS</div>
   
         <div class="card_body">
           <table class="table">
@@ -16,8 +16,8 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="usuario in usuario" :key="usuario.id">
-                <td>{{ usuario.id }}</td>
+              <tr v-for="usuario in usuario" :key="usuario.Id">
+                <td>{{ usuario.Id }}</td>
                 <td>{{ usuario.user }}</td>
                 <td>{{ usuario.password }}</td>
                 <td>{{ usuario.fechaRegistro }}</td>
@@ -25,17 +25,17 @@
                 <td>{{ usuario.idRol }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
-                    <!-- |<router-link :to="{name:'editar',param:{id:articulo.id}}" class="btn btn-info">Editar</router-link> | -->
+                    <!-- |<router-link :to="{name:'editar',param:{Id:articulo.Id}}" class="btn btn-info">Editar</router-link> | -->
                     |<button
                       type="button"
-                      v-on:click="borrarUsuario(usuario.id)"
+                      v-on:click="borrarUsuario(usuario.Id)"
                       class="btn btn-danger"
                     >
                       Eliminar</button
                     >|
                     |<button
                       type="button"
-                      v-on:click="borrarUsuario(usuario.id)"
+                      v-on:click="borrarUsuario(usuario.Id)"
                       class="btn btn-warning"
                     >
                       Editar</button
@@ -69,10 +69,10 @@ export default {
       });
     },
 
-    borrarArticulo(id) {
-      console.log(id);
+    borrarArticulo(Id) {
+      console.log(Id);
 
-      axios.delete("https://localhost:7204/Usuario/Borrar/" + id);
+      axios.delete("https://localhost:7204/Usuario/Borrar/" + Id);
 
       window.location.href = "Listar";
     },
@@ -84,6 +84,10 @@ export default {
 
   .card-style{
     color: black;
+  }
+
+  .thead{
+    font-size: 20px;
   }
 
 
