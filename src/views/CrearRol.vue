@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="card">
-        <div class="card-header">Nuevo Departamento      </div>
+        <div class="card-header">Nuevo Rol       </div>
         <div class="card-body">
           <form v-on:submit.prevent="agregarRegistro">
             <div class="form-group">
@@ -9,14 +9,14 @@
               <input
                 type="text"
                 class="form-control"
-                name="User"
-                v-model="departamento.nombre"
+                name="nombre"
+                v-model="rol.nombre"
                 aria-describedby="helpId"
-                id="user"
-                placeholder="Nuevo departamento"
+                id="nombre"
+                placeholder="Nombre"
               />
               <small id="helpId" class="form-text" text-muted
-                >Ingresa el nombre del nuevo departamento</small
+                >Ingresa el nombre del nuevo rol</small
               >
             </div>
   
@@ -39,23 +39,23 @@
   export default {
     data() {
       return {
-        departamento: {},
+        rol: {},
       };
     },
   
     methods: {
       agregarRegistro() {
-        console.log(this.departamento);
+        console.log(this.rol);
   
         var datosEnviar = {
-           nombre: this.departamento.nombre,
+           nombre: this.rol.nombre,
         };
   
         axios
-          .post("https://localhost:7204/Departamento", datosEnviar)
+          .post("https://localhost:7204/Rol", datosEnviar)
           .then((result) => {
             console.log(result);
-            window.location.href = "listardepartment";
+            window.location.href = "listarpuesto";
           });
       },
     },

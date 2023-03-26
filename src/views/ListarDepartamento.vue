@@ -12,22 +12,22 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="departamento in departamentos" :key="departamento.id">
-                <td>{{ departamento.id }}</td>
+              <tr v-for="departamento in departamentos" :key="departamento.iD_Departamento">
+                <td>{{ departamento.iD_Departamento }}</td>
                 <td>{{ departamento.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{Id:articulo.Id}}" class="btn btn-info">Editar</router-link> | -->
                     |<button
                       type="button"
-                      v-on:click="borrarDepartamento(usuario.id)"
+                      v-on:click="borrarDepartamento(departamento.iD_Departamento)"
                       class="btn btn-danger"
                     >
                       Eliminar</button
                     >|
                     |<button
                       type="button"
-                      v-on:click="borrarDepartamento(usuario.id)"
+                      v-on:click="borrarDepartamento(departamento.iD_Departamento)"
                       class="btn btn-warning"
                     >
                       Editar</button
@@ -61,12 +61,12 @@ export default {
       });
     },
 
-    borrarDepartamento(Id) {
-      console.log(Id);
+    borrarDepartamento(iD_Departamento) {
+      console.log(iD_Departamento);
 
-      axios.delete("https://localhost:7204/Departamento/Borrar/" + Id.toString());
+      axios.delete("https://localhost:7204/Departamento/Borrar/" + id.toString());
       this.consultarDepartamentos();
-      window.location.href = "Listar";
+      window.location.href = "Listardepartment";
     },
   },
 };

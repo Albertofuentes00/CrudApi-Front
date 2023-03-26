@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="card">
-        <div class="card-header">Departamentos</div>
+        <div class="card-header">Roles</div>
   
         <div class="card_body">
           <table class="table">
@@ -12,22 +12,22 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="departamento in departamentos" :key="departamento.id">
-                <td>{{ departamento.id }}</td>
-                <td>{{ departamento.nombre }}</td>
+              <tr v-for="rol in roles" :key="rol.iD_Rol">
+                <td>{{ rol.iD_Rol }}</td>
+                <td>{{ rol.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{Id:articulo.Id}}" class="btn btn-info">Editar</router-link> | -->
                     |<button
                       type="button"
-                      v-on:click="borrarDepartamento(departamento.id)"
+                      v-on:click="borrarRol(rol.iD_Rol)"
                       class="btn btn-danger"
                     >
                       Eliminar</button
                     >|
                     |<button
                       type="button"
-                      v-on:click="borrarDepartamento(departamento.id)"
+                      v-on:click="borrarRol(rol.iD_Rol)"
                       class="btn btn-warning"
                     >
                       Editar</button
@@ -47,27 +47,26 @@ import axios from "axios";
 export default {
   data() {
     return {
-      departamentos: [],
+      roles: [],
     };
   },
   created: function () {
-    this.consultarDepartamentos();
+    this.consultarRoles();
   },
   methods: {
-    consultarDepartamentos() {
-      axios.get("https://localhost:7204/Departamento").then((result) => {
+    consultarRoles() {
+      axios.get("https://localhost:7204/Rol").then((result) => {
         console.log(result.data.result);
-        this.departamentos = result.data.result;
-        console.log(departamento[0].id)
+        this.roles = result.data.result;
       });
     },
 
-    borrarDepartamento(Id) {
-      console.log(Id);
+    borrarRol(iD_rol) {
+      console.log(iD_rol);
 
-      axios.delete("https://localhost:7204/Departamento/Borrar/" + id.toString());
-      this.consultarDepartamentos();
-      window.location.href = "Listar";
+      axios.delete("https://localhost:7204/Rol/Borrar/" + Id.toString());
+      this.consultarRoles();
+      window.location.href = "ListarRol";
     },
   },
 };

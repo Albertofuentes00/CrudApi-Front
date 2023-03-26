@@ -1,7 +1,7 @@
 <template>
     <div>
       <div class="card">
-        <div class="card-header">Departamentos</div>
+        <div class="card-header">Empleados</div>
   
         <div class="card_body">
           <table class="table">
@@ -9,25 +9,35 @@
               <tr>
                 <th>ID</th>
                 <th>Nombre</th>
+                <th>Apellidos</th>
+                <th>Direccion</th>
+                <th>Ciudad</th>
+                <th>ID Puesto</th>
+                <th>ID Departamento</th>
               </tr>
             </thead>
             <tbody>
-              <tr v-for="departamento in departamentos" :key="departamento.id">
-                <td>{{ departamento.id }}</td>
-                <td>{{ departamento.nombre }}</td>
+              <tr v-for="empleado in empleados" :key="empleado.iD_Empleado">
+                <td>{{ empleado.iD_Empleado }}</td>
+                <td>{{ empleado.nombre }}</td>
+                <td>{{ empleado.apellidos }}</td>
+                <td>{{ empleado.direccion }}</td>
+                <td>{{ empleado.ciudad }}</td>
+                <td>{{ empleado.idPuesto }}</td>
+                <td>{{ empleado.idDepartamento }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{Id:articulo.Id}}" class="btn btn-info">Editar</router-link> | -->
                     |<button
                       type="button"
-                      v-on:click="borrarDepartamento(departamento.id)"
+                      v-on:click="borrarempleado(empleado.iD_Empleado)"
                       class="btn btn-danger"
                     >
                       Eliminar</button
                     >|
                     |<button
                       type="button"
-                      v-on:click="borrarDepartamento(departamento.id)"
+                      v-on:click="borrarempleado(empleado.iD_Empleado)"
                       class="btn btn-warning"
                     >
                       Editar</button
@@ -47,28 +57,31 @@ import axios from "axios";
 export default {
   data() {
     return {
-      departamentos: [],
+      empleados: [],
     };
   },
   created: function () {
-    this.consultarDepartamentos();
+    this.consultarempleados();
   },
   methods: {
-    consultarDepartamentos() {
-      axios.get("https://localhost:7204/Departamento").then((result) => {
+    consultarempleados() {
+      axios.get("https://localhost:7204/Empleado").then((result) => {
         console.log(result.data.result);
-        this.departamentos = result.data.result;
-        console.log(departamento[0].id)
+        this.empleados = result.data.result;
       });
     },
 
-    borrarDepartamento(Id) {
-      console.log(Id);
+    borrarempleado(iD_Empleado) {
+      console.log(iD_Empleado);
 
-      axios.delete("https://localhost:7204/Departamento/Borrar/" + id.toString());
-      this.consultarDepartamentos();
+      axios.delete("https://localhost:7204/empleado/Borrar/" + iD_Empleado.toString());
+      this.consultarempleados();
       window.location.href = "Listar";
     },
+
+    editarempleado(iD_Empleado) {
+      
+    }
   },
 };
 </script>
