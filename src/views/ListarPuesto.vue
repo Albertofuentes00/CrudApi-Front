@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     consultarPuestos() {
-      axios.get("https://localhost:7204/Puesto").then((result) => {
+      axios.get("https://localhost:7204/Puesto/Leer").then((result) => {
         console.log(result.data.result);
         this.puestos = result.data.result;
       });

@@ -52,10 +52,10 @@
         };
   
         axios
-          .post("https://localhost:7204/Rol", datosEnviar)
+          .post("https://localhost:7204/Rol/Postear", datosEnviar)
           .then((result) => {
             console.log(result);
-            window.location.href = "listarpuesto";
+            window.location.href = "listarRol";
           });
       },
     },

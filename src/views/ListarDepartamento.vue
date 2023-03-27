@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     consultarDepartamentos() {
-      axios.get("https://localhost:7204/Departamento").then((result) => {
+      axios.get("https://localhost:7204/Departamento/Consultar").then((result) => {
         console.log(result.data.result);
         this.departamentos = result.data.result;
       });
@@ -64,7 +64,7 @@ export default {
     borrarDepartamento(iD_Departamento) {
       console.log(iD_Departamento);
 
-      axios.delete("https://localhost:7204/Departamento/Borrar/" + id.toString());
+      axios.delete("https://localhost:7204/Departamento/Borrar/" + iD_Departamento);
       this.consultarDepartamentos();
       window.location.href = "Listardepartment";
     },

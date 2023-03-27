@@ -64,18 +64,18 @@ export default {
   },
   methods: {
     consultarClientes() {
-      axios.get("https://localhost:7204/Cliente").then((result) => {
+      axios.get("https://localhost:7204/Cliente/Leer").then((result) => {
         console.log(result.data.result);
         this.clientes = result.data.result;
       });
     },
 
-    borrarempleado(iD_Cliente) {
+    borrarCliente(iD_Cliente) {
       console.log(iD_Cliente);
 
-      axios.delete("https://localhost:7204/Cliente/Borrar/" + iD_Cliente.toString());
+      axios.delete("https://localhost:7204/Cliente/Borrar/" + iD_Cliente);
       this.consultarClientes();
-      window.location.href = "Listar";
+      window.location.href = "listarcliente";
     },
 
     editarCliente(iD_Cliente) {

@@ -103,10 +103,10 @@
         };
   
         axios
-          .post("https://localhost:7204/Factura", datosEnviar)
+          .post("https://localhost:7204/Factura/Postear", datosEnviar)
           .then((result) => {
             console.log(result);
-            window.location.href = "Listar";
+            window.location.href = "listarfactura";
           });
       },
     },

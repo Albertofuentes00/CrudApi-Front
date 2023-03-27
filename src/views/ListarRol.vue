@@ -55,7 +55,7 @@ export default {
   },
   methods: {
     consultarRoles() {
-      axios.get("https://localhost:7204/Rol").then((result) => {
+      axios.get("https://localhost:7204/Rol/Leer").then((result) => {
         console.log(result.data.result);
         this.roles = result.data.result;
       });
@@ -64,7 +64,7 @@ export default {
     borrarRol(iD_rol) {
       console.log(iD_rol);
 
-      axios.delete("https://localhost:7204/Rol/Borrar/" + Id.toString());
+      axios.delete("https://localhost:7204/Rol/Borrar/" + iD_rol);
       this.consultarRoles();
       window.location.href = "ListarRol";
     },

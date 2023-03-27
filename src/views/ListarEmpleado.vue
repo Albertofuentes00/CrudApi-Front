@@ -65,7 +65,7 @@ export default {
   },
   methods: {
     consultarempleados() {
-      axios.get("https://localhost:7204/Empleado").then((result) => {
+      axios.get("https://localhost:7204/Empleado/Leer").then((result) => {
         console.log(result.data.result);
         this.empleados = result.data.result;
       });
@@ -74,7 +74,7 @@ export default {
     borrarempleado(iD_Empleado) {
       console.log(iD_Empleado);
 
-      axios.delete("https://localhost:7204/empleado/Borrar/" + iD_Empleado.toString());
+      axios.delete("https://localhost:7204/Empleado/Borrar/" + iD_Empleado.toString());
       this.consultarempleados();
       window.location.href = "Listar";
     },

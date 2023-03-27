@@ -61,7 +61,7 @@ export default {
   },
   methods: {
     consultarFacturas() {
-      axios.get("https://localhost:7204/Factura").then((result) => {
+      axios.get("https://localhost:7204/Factura/Leer").then((result) => {
         console.log(result.data.result);
         this.factura = result.data.result;
       });

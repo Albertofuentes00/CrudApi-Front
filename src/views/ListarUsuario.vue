@@ -63,7 +63,7 @@ export default {
   },
   methods: {
     consultarUsuarios() {
-      axios.get("https://localhost:7204/Usuario").then((result) => {
+      axios.get("https://localhost:7204/Usuario/Leer").then((result) => {
         console.log(result.data.result);
         this.usuarios = result.data.result;
       });

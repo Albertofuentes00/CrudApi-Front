@@ -52,7 +52,7 @@
         };
   
         axios
-          .post("https://localhost:7204/Departamento", datosEnviar)
+          .post("https://localhost:7204/Departamento/Postear", datosEnviar)
           .then((result) => {
             console.log(result);
             window.location.href = "listardepartment";
