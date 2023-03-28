@@ -76,7 +76,7 @@ export default {
 
       axios.delete("https://localhost:7204/Empleado/Borrar/" + iD_Empleado.toString());
       this.consultarempleados();
-      window.location.href = "Listar";
+      window.location.href = "listarempleado";
     },
 
     editarempleado(iD_Empleado) {

@@ -1,7 +1,7 @@
 <template>
     <div class="container">
       <div class="card">
-        <div class="card-header">Nuevo Empleado             </div>
+        <div class="card-header">Editar Empleado             </div>
         <div class="card-body">
           <form v-on:submit.prevent="agregarRegistro">
             <div class="form-group">
@@ -10,7 +10,7 @@
                 type="text"
                 class="form-control"
                 name="User"
-                v-model="empleado.nombre"
+                v-model="nombre"
                 aria-describedby="helpId"
                 id="user"
                 placeholder="Nombre"
@@ -26,7 +26,7 @@
                 class="form-control"
                 name="apellidos"
                 id="apellidos"
-                v-model="empleado.apellidos"
+                v-model="apellidos"
                 aria-describedby="helpId"
                 placeholder="Apellidos"
               />
@@ -42,7 +42,7 @@
                 class="form-control"
                 name="direccion"
                 id="direccion"
-                v-model="empleado.direccion"
+                v-model="direccion"
                 aria-describedby="helpId"
                 placeholder="Direccion"
               />
@@ -59,7 +59,7 @@
                 class="form-control"
                 name="ciudad"
                 id="ciudad"
-                v-model="empleado.ciudad"
+                v-model="ciudad"
                 aria-describedby="helpId"
                 placeholder="ciudad"
               />
@@ -75,7 +75,7 @@
                 class="form-control"
                 name="idPuesto"
                 id="idPuesto"
-                v-model="empleado.idPuesto"
+                v-model="idPuesto"
                 aria-describedby="helpId"
                 placeholder="ID de Puesto"
               />
@@ -91,7 +91,7 @@
                 class="form-control"
                 name="idDep"
                 id="idDep"
-                v-model="empleado.idDepartamento"
+                v-model="idDepartamento"
                 aria-describedby="helpId"
                 placeholder="ID de departamento"
               />
@@ -104,45 +104,64 @@
   
             <div class="btn-group" role="group">
               |<button type="submit" class="btn btn-success">Agregar</button>|
-              |<router-link :to="{ name: 'listar' }" class="btn btn-danger"
-                >Cancelar</router-link
-              >|
+              
             </div>
           </form>
         </div>
       </div>
     </div>
   </template>
+
+
+
+<script>
+  import axios from 'axios';
   
-  <script>
-  import axios from "axios";
   export default {
     data() {
       return {
-        empleado: {},
+        iD_Empleado: '',
+        nombre: '',
+        apellidos:'',
+        direccion:'',
+        ciudad:'',
+        idPuesto:'',
+        idDepartamento:''
       };
     },
+    mounted() {
+      const userId = this.$route.params.id;
   
+      axios
+        .get("https://localhost:7204/Empleado/Leer"+userId)
+        .then(response => {
+          this.iD_Empleado = response.data.result.iD_Empleado;
+          this.nombre = response.data.result.nombre;
+          this.apellidos = response.data.result.apellidos;
+          this.direccion = response.data.result.telefono;
+          this.ciudad = response.data.result.email;
+          this.idPuesto = response.data.result.idPuesto;
+          this.idDepartamento = response.data.result.idDepartamento;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
     methods: {
-      agregarRegistro() {
-        console.log(this.empleado);
-  
-        var datosEnviar = {
-          Nombre: this.empleado.nombre,
-          Apellidos: this.empleado.apellidos,
-          Direccion: this.empleado.direccion,
-          Ciudad: this.empleado.ciudad,
-          IDPuesto: this.empleado.idPuesto,
-          IdDepartamento: this.empleado.idDepartamento
+      updateData() {
+        const updatedData = {
+          nombre: this.nombre
         };
-  
         axios
-          .post("https://localhost:7204/Empleado/Postear", datosEnviar)
-          .then((result) => {
-            console.log(result);
-            window.location.href = "Listarempleado";
+          .put("https://localhost:7204/Empleado/Editar"+this.iD_Empleado, updatedData)
+          .then(response => {
+            console.log(response.data.result);
+            this.$router.push('/listarempleado')
+          })
+          .catch(error => {
+            console.error(error);
           });
       },
     },
   };
-  </script> 
+  </script>

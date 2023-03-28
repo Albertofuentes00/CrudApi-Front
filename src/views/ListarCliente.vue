@@ -34,13 +34,10 @@
                     >
                       Eliminar</button
                     >|
-                    |<button
-                      type="button"
-                      v-on:click="borrarCliente(cliente.iD_Cliente)"
-                      class="btn btn-warning"
-                    >
-                      Editar</button
-                    >|
+                      <router-link :to="{path:'/editarcliente/'+cliente.iD_Cliente}" class="btn btn-warning">
+                      <i class="fa-solid fa-edit">Editar</i>
+                     </router-link> &nbsp;
+                    |
                   </div>
                 </td>
               </tr>

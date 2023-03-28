@@ -72,7 +72,7 @@ export default {
 
       axios.delete("https://localhost:7204/Factura/Borrar/" + NoFactura.toString());
       this.consultarFacturas();
-      window.location.href = "Listar";
+      window.location.href = "listarfactura";
     },
 
     editarFactura(NoFactura) {

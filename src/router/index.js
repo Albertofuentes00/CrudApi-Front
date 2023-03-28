@@ -1,21 +1,35 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Login from '../views/LoginView.vue'
 import Dashboard from '../views/DashboardView.vue'
+
 import CrearUsuario from "../views/CrearUsuario.vue"
 import ListarUsuario from '../views/ListarUsuario.vue'
+
 import CrearDepartamento from '../views/CrearDepartamento.vue'
 import ListarDepartamento from '../views/ListarDepartamento.vue'
+import EditarDepartamento from '../views/EditarDepartamento.vue'
+
 import CrearEmpleado from '../views/CrearEmpleado.vue'
 import ListarEmpleado from '../views/ListarEmpleado.vue'
+import EditarEmpleado from '../views/EditarEmpleado.vue'
+
 import CrearPuesto from '../views/CrearPuesto.vue'
 import ListarPuesto from '../views/ListarPuesto.vue'
+import EditarPuesto from '../views/EditarPuesto.vue'
+
 import CrearRol from '../views/CrearRol.vue'
 import ListarRol from '../views/ListarRol.vue'
+import EditarRol from '../views/EditarRol.vue'
+
 import CrearFactura from '../views/CrearFactura.vue'
 import ListarFactura from '../views/ListarFactura.vue'
+import EditarFactura from '../views/EditarFactura.vue'
+
 import CrearCliente from '../views/CrearCliente.vue'
 import ListarCliente from '../views/ListarCliente.vue'
+import EditarCliente from '../views/EditarCliente.vue'
 
+import prueba from '../views/prueba.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -51,6 +65,11 @@ const router = createRouter({
       component: ListarDepartamento
     },
     {
+      path: '/editardepartment/:id',
+      name: 'editardepartment',
+      component: EditarDepartamento
+    },
+    {
       path: '/crearempleado',
       name: 'crearempleado',
       component: CrearEmpleado
@@ -59,6 +78,11 @@ const router = createRouter({
       path: '/listarempleado',
       name: 'listarempleado',
       component: ListarEmpleado
+    },
+    {
+      path: '/editarempleado:id',
+      name: 'editarempleado',
+      component: EditarEmpleado
     },
     {
       path: '/crearpuesto',
@@ -71,6 +95,11 @@ const router = createRouter({
       component: ListarPuesto
     },
     {
+      path: '/editarpuesto:id',
+      name: 'editarpuesto',
+      component: EditarPuesto
+    },
+    {
       path: '/crearRol',
       name: 'crearRol',
       component: CrearRol
@@ -79,6 +108,11 @@ const router = createRouter({
       path: '/listarRol',
       name: 'listarRol',
       component: ListarRol
+    },
+    {
+      path: '/editarRol:id',
+      name: 'editarRol',
+      component: EditarRol
     },
     {
       path: '/crearfactura',
@@ -91,6 +125,11 @@ const router = createRouter({
       component: ListarFactura
     },
     {
+      path: '/editarfactura:id',
+      name: 'editarfactura',
+      component: EditarFactura
+    },
+    {
       path: '/crearcliente',
       name: 'crearcliente',
       component: CrearCliente
@@ -99,6 +138,16 @@ const router = createRouter({
       path: '/listarcliente',
       name: 'listarcliente',
       component: ListarCliente
+    },
+    {
+      path:'/editarcliente/:id',
+      name: 'editarcliente',
+      component: EditarCliente
+    },
+    {
+      path: '/pureba',
+      name: 'prueba',
+      component: prueba
     }
   ]
 })

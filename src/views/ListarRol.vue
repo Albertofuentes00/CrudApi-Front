@@ -25,13 +25,10 @@
                     >
                       Eliminar</button
                     >|
-                    |<button
-                      type="button"
-                      v-on:click="borrarRol(rol.iD_Rol)"
-                      class="btn btn-warning"
-                    >
-                      Editar</button
-                    >|
+                    <router-link :to="{path:'/editarRol'+rol.iD_Rol}" class="btn btn-warning">
+                      <i class="fa-solid fa-edit">Editar</i>
+                     </router-link> &nbsp;
+                     |
                   </div>
                 </td>
               </tr>

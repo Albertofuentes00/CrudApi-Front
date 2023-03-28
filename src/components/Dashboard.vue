@@ -41,6 +41,7 @@
                          <li><li><RouterLink to="/creardepartment">Nuevo Depart</RouterLink></li></li>
                          <hr id="line" size="2px" color="white" />
                          <li><li><RouterLink to="/">Salir</RouterLink></li></li>
+                         <li><li><RouterLink to="/pureba">Ventana pureba</RouterLink></li></li>
                       </ul>
                      </div>
         </main>

@@ -25,13 +25,10 @@
                     >
                       Eliminar</button
                     >|
-                    |<button
-                      type="button"
-                      v-on:click="borrarDepartamento(departamento.iD_Departamento)"
-                      class="btn btn-warning"
-                    >
-                      Editar</button
-                    >|
+                      <router-link :to="{path:'/editardepartment/'+departamento.iD_Departamento}" class="btn btn-warning">
+                      <i class="fa-solid fa-edit">Editar</i>
+                     </router-link> &nbsp;
+                    |
                   </div>
                 </td>
               </tr>

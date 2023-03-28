@@ -25,13 +25,10 @@
                     >
                       Eliminar</button
                     >|
-                    |<button
-                      type="button"
-                      v-on:click="borrarPuesto(puesto.iD_Puesto)"
-                      class="btn btn-warning"
-                    >
-                      Editar</button
-                    >|
+                    |<router-link :to="{path:'/editarpuesto'+puesto.iD_Puesto}" class="btn btn-warning">
+                      <i class="fa-solid fa-edit">Editar</i>
+                     </router-link> &nbsp;
+                     |
                   </div>
                 </td>
               </tr>

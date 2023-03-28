@@ -1,16 +1,16 @@
 <template>
     <div class="container">
       <div class="card">
-        <div class="card-header">Nuevo Cliente            </div>
+        <div class="card-header">Editar Cliente            </div>
         <div class="card-body">
-          <form v-on:submit.prevent="agregarRegistro">
+          <form @submit.prevent="updateData">
             <div class="form-group">
               <label for="">Nombre:</label>
               <input
                 type="text"
                 class="form-control"
                 name="User"
-                v-model="cliente.nombre"
+                v-model="nombre"
                 aria-describedby="helpId"
                 id="nombre"
                 placeholder="Nombre"
@@ -26,7 +26,7 @@
                 class="form-control"
                 name="apellidos"
                 id="apellidos"
-                v-model="cliente.apellidos"
+                v-model="apellidos"
                 aria-describedby="helpId"
                 placeholder="Apellidos"
               />
@@ -42,7 +42,7 @@
                 class="form-control"
                 name="telefono"
                 id="telefono"
-                v-model="cliente.telefono"
+                v-model="telefono"
                 aria-describedby="helpId"
                 placeholder="telefono"
               />
@@ -59,7 +59,7 @@
                 class="form-control"
                 name="email"
                 id="email"
-                v-model="cliente.email"
+                v-model="email"
                 aria-describedby="helpId"
                 placeholder="email"
               />
@@ -75,7 +75,7 @@
                 class="form-control"
                 name="direccion"
                 id="direccion"
-                v-model="cliente.direccion"
+                v-model="direccion"
                 aria-describedby="helpId"
                 placeholder="direccion"
               />
@@ -88,45 +88,65 @@
             <br />
   
             <div class="btn-group" role="group">
-              |<button type="submit" class="btn btn-success">Agregar</button>|
-              |<router-link :to="{ name: 'listar' }" class="btn btn-danger"
-                >Cancelar</router-link
-              >|
+              |<button type="submit" 
+              v-on:click="updateData(cliente.iD_Cliente)"
+              class="btn btn-success">Guardar</button>|
+              >
             </div>
           </form>
         </div>
       </div>
     </div>
   </template>
-  
+
+
   <script>
-  import axios from "axios";
+  import axios from 'axios';
+  
   export default {
     data() {
       return {
-        cliente: {},
+        iD_Cliente: '',
+        nombre: '',
+        apellidos:'',
+        telefono:'',
+        email:'',
+        direccion:''
       };
     },
+    mounted() {
+      const userId = this.$route.params.id;
   
+      axios
+        .get("https://localhost:7204/Cliente/Leer"+userId)
+        .then(response => {
+          this.iD_Cliente = response.data.result.iD_Cliente;
+          this.nombre = response.data.result.nombre;
+          this.apellidos = response.data.result.apellidos;
+          this.telefono = response.data.result.telefono;
+          this.email = response.data.result.email;
+          this.direccion = response.data.result.direccion;
+
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    },
     methods: {
-      agregarRegistro() {
-        console.log(this.cliente);
-  
-        var datosEnviar = {
-          Nombre: this.cliente.nombre,
-          Apellidos: this.cliente.apellidos,
-          telefono: this.cliente.telefono,
-          Email: this.cliente.email,
-          Direccion: this.cliente.direccion,
+      updateData() {
+        const updatedData = {
+          nombre: this.nombre
         };
-  
         axios
-          .post("https://localhost:7204/Cliente/Postear", datosEnviar)
-          .then((result) => {
-            console.log(result);
-            window.location.href = "listarcliente";
+          .put("https://localhost:7204/Cliente/Editar"+this.iD_Cliente, updatedData)
+          .then(response => {
+            console.log(response.data.result);
+            this.$router.push('/listarcliente')
+          })
+          .catch(error => {
+            console.error(error);
           });
       },
     },
   };
-  </script> 
+  </script>
