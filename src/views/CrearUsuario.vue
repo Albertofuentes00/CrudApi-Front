@@ -119,7 +119,7 @@
         };
   
         axios
-          .post("https://localhost:7204/Usuario", datosEnviar)
+          .post("https://localhost:7204/Usuario/Postear", datosEnviar)
           .then((result) => {
             console.log(result);
             window.location.href = "Listar";

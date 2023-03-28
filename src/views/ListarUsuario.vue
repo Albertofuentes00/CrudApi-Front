@@ -21,8 +21,8 @@
                 <td>{{ usuario.user }}</td>
                 <td>{{ usuario.password }}</td>
                 <td>{{ usuario.fechaRegistro }}</td>
-                <td>{{ usuario.idEmpleado }}</td>
-                <td>{{ usuario.idRol }}</td>
+                <td>{{ usuario.empleado.nombre }}</td>
+                <td>{{ usuario.rol.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{Id:articulo.Id}}" class="btn btn-info">Editar</router-link> | -->
@@ -33,13 +33,9 @@
                     >
                       Eliminar</button
                     >|
-                    |<button
-                      type="button"
-                      v-on:click="borrarUsuario(usuario.id)"
-                      class="btn btn-warning"
-                    >
-                      Editar</button
-                    >|
+                    |<router-link :to="{path:'/editarfactura'+usuario.id}" class="btn btn-warning">
+                      <i class="fa-solid fa-edit">Editar</i>
+                     </router-link> &nbsp;|
                   </div>
                 </td>
               </tr>

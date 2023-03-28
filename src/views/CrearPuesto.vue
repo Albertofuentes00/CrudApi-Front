@@ -52,7 +52,7 @@
         };
   
         axios
-          .post("https://localhost:7204/Puesto", datosEnviar)
+          .post("https://localhost:7204/Puesto/Postear", datosEnviar)
           .then((result) => {
             console.log(result);
             window.location.href = "listarpuesto";

@@ -4,6 +4,7 @@ import Dashboard from '../views/DashboardView.vue'
 
 import CrearUsuario from "../views/CrearUsuario.vue"
 import ListarUsuario from '../views/ListarUsuario.vue'
+import EditarUsuario from '../views/EditarUsuario.vue'
 
 import CrearDepartamento from '../views/CrearDepartamento.vue'
 import ListarDepartamento from '../views/ListarDepartamento.vue'
@@ -53,6 +54,11 @@ const router = createRouter({
       path: '/listar',
       name: 'listar',
       component: ListarUsuario
+    },
+    {
+      path: '/editarusuario:id',
+      name: 'editarusuario',
+      component: EditarUsuario
     },
     {
       path: '/creardepartment',

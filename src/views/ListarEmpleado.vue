@@ -23,8 +23,8 @@
                 <td>{{ empleado.apellidos }}</td>
                 <td>{{ empleado.direccion }}</td>
                 <td>{{ empleado.ciudad }}</td>
-                <td>{{ empleado.idPuesto }}</td>
-                <td>{{ empleado.idDepartamento }}</td>
+                <td>{{ empleado.puesto.nombre }}</td>
+                <td>{{ empleado.departamento.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{Id:articulo.Id}}" class="btn btn-info">Editar</router-link> | -->
@@ -35,13 +35,9 @@
                     >
                       Eliminar</button
                     >|
-                    |<button
-                      type="button"
-                      v-on:click="borrarempleado(empleado.iD_Empleado)"
-                      class="btn btn-warning"
-                    >
-                      Editar</button
-                    >|
+                    |<router-link :to="{path:'/editarempleado'+empleado.iD_Empleado}" class="btn btn-warning">
+                      <i class="fa-solid fa-edit">Editar</i>
+                     </router-link> &nbsp;|
                   </div>
                 </td>
               </tr>

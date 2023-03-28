@@ -15,29 +15,25 @@
               </tr>
             </thead>
             <tbody>
-              <tr v-for="factura in facturas" :key="factura.NoFactura">
-                <td>{{ factura.NoFactura }}</td>
-                <td>{{ factura.RazonSocial }}</td>
+              <tr v-for="factura in facturas" :key="factura.iD_Factura">
+                <td>{{ factura.iD_Factura }}</td>
+                <td>{{ factura.razonSocial }}</td>
                 <td>{{ factura.fecha }}</td>
                 <td>{{ factura.rfc }}</td>
-                <td>{{ factura.idCliente }}</td>
+                <td>{{ factura.cliente.nombre }}</td>
                 <td>
                   <div class="btn-group" role="label" aria-label="">
                     <!-- |<router-link :to="{name:'editar',param:{Id:articulo.Id}}" class="btn btn-info">Editar</router-link> | -->
                     |<button
                       type="button"
-                      v-on:click="borrarFactura(factura.NoFactura)"
+                      v-on:click="borrarFactura(factura.iD_Factura)"
                       class="btn btn-danger"
                     >
                       Eliminar</button
                     >|
-                    |<button
-                      type="button"
-                      v-on:click="borrarFactura(factura.NoFactura)"
-                      class="btn btn-warning"
-                    >
-                      Editar</button
-                    >|
+                    |<router-link :to="{path:'/editarfactura'+factura.iD_Factura}" class="btn btn-warning">
+                      <i class="fa-solid fa-edit">Editar</i>
+                     </router-link> &nbsp;|
                   </div>
                 </td>
               </tr>
@@ -63,19 +59,19 @@ export default {
     consultarFacturas() {
       axios.get("https://localhost:7204/Factura/Leer").then((result) => {
         console.log(result.data.result);
-        this.factura = result.data.result;
+        this.facturas = result.data.result;
       });
     },
 
-    borrarFactura(NoFactura) {
-      console.log(NoFactura);
+    borrarFactura(iD_Factura) {
+      console.log(iD_Factura);
 
-      axios.delete("https://localhost:7204/Factura/Borrar/" + NoFactura.toString());
+      axios.delete("https://localhost:7204/Factura/Borrar/" + iD_Factura.toString());
       this.consultarFacturas();
       window.location.href = "listarfactura";
     },
 
-    editarFactura(NoFactura) {
+    editarFactura(iD_Factura) {
       
     }
   },

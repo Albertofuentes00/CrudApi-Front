@@ -42,7 +42,9 @@ export default {
   data() {
     return {
       iD_Departamento: '',
-      nombre: ''
+      datos: {
+        nombre: ''
+      },
     };
   },
   mounted() {
@@ -64,7 +66,7 @@ export default {
         nombre: this.nombre
       };
       axios
-        .put("https://localhost:7204/Departamento/Editar"+this.iD_Departamento, updatedData)
+        .put("https://localhost:7204/Departamento/Editar"+this.iD_Departamento, this.datos)
         .then(response => {
           console.log(response.data.result);
           this.$router.push('/listardepartment')

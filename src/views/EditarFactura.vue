@@ -31,7 +31,7 @@
                 placeholder="fecha"
               />
               <small id="helpId" class="form-text" text-muted
-                >Ingresa la fecha dde factura</small
+                >Ingresa la fecha de factura</small
               >
             </div>
 
@@ -88,7 +88,7 @@
   export default {
     data() {
       return {
-        NoFactura: '',
+        iD_Factura: '',
         RazonSocial: '',
         fecha:'',
         rfc:'',
@@ -101,7 +101,7 @@
       axios
         .get("https://localhost:7204/Factura/Leer"+userId)
         .then(response => {
-          this.NoFactura = response.data.result.NoFactura;
+          this.iD_Factura = response.data.result.iD_Factura;
           this.RazonSocial = response.data.result.RazonSocial;
           this.fecha = response.data.result.fecha;
           this.rfc = response.data.result.rfc;
@@ -117,7 +117,7 @@
           nombre: this.nombre
         };
         axios
-          .put("https://localhost:7204/Factura/Editar"+this.NoFactura, updatedData)
+          .put("https://localhost:7204/Factura/Editar"+this.iD_Factura, updatedData)
           .then(response => {
             console.log(response.data.result);
             this.$router.push('/listarfactura')

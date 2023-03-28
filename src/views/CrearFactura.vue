@@ -10,7 +10,7 @@
                 type="text"
                 class="form-control"
                 name="User"
-                v-model="factura.RazonSocial"
+                v-model="factura.razonSocial"
                 aria-describedby="helpId"
                 id="user"
                 placeholder="razon"
@@ -96,8 +96,8 @@
         console.log(this.factura);
   
         var datosEnviar = {
-          RazonSocial: this.factura.RazonSocial,
-          fecha: this.factura.fecha,
+          RazonSocial: this.factura.razonSocial,
+          Fecha: this.factura.fecha,
           RFC: this.factura.rfc,
           IdCliente: this.factura.idCliente,
         };
