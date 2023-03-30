@@ -28,7 +28,7 @@
                 id="password"
                 v-model="usuario.password"
                 aria-describedby="helpId"
-                placeholder="Proveedor"
+                placeholder="Password"
               />
               <small id="helpId" class="form-text" text-muted
                 >Ingresa la contraseña</small
@@ -51,7 +51,33 @@
               >
             </div>
 
-            <div class="form-group">
+
+
+            <label for="fkCliente">Seleccionar un Rol:</label>
+              <select id="fkCliente" v-model="usuario.idRol" class="form-control">
+                <option v-for="rol in roles" :key="rol.iD_Rol" :value="rol.iD_Rol">
+                  {{rol.nombre}}
+                </option>
+              </select>
+
+              <br>
+
+              <label for="fkCliente">Seleccionar un Empleado:</label>
+              <select id="fkCliente" v-model="usuario.idEmpleado" class="form-control">
+                <option v-for="empleado in empleados" :key="empleado.iD_Empleado" :value="empleado.iD_Empleado">
+                  {{empleado.nombre}}
+                </option>
+              </select>
+
+            <br />
+
+
+
+
+
+
+
+            <!-- <div class="form-group">
               <label for="">ID Empleado:</label>
               <input
                 type="text"
@@ -81,7 +107,7 @@
               <small id="helpId" class="form-text" text-muted
                 >Ingresa el ID del Rol</small
               >
-            </div>
+            </div> -->
   
             <br />
   
@@ -103,9 +129,31 @@
     data() {
       return {
         usuario: {},
-      };
+        datos: {
+          idRol: 0,
+          idEmpleado: 0
+        },
+        roles: [],
+        empleados: []
+      }
     },
-  
+    mounted() {
+      axios.get("https://localhost:7204/Rol/Leer")
+        .then(response => {
+          this.roles = response.data.result;
+        })
+        .catch(error => {
+          console.error(error);
+      });
+
+      axios.get("https://localhost:7204/Empleado/Leer")
+        .then(response => {
+          this.empleados = response.data.result;
+        })
+        .catch(error => {
+          console.error(error);
+      });
+    },
     methods: {
       agregarRegistro() {
         console.log(this.usuario);
@@ -117,6 +165,7 @@
           IDEmpleado: this.usuario.idEmpleado,
           IDRol: this.usuario.idRol
         };
+        
   
         axios
           .post("https://localhost:7204/Usuario/Postear", datosEnviar)

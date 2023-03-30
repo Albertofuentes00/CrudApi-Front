@@ -89,7 +89,7 @@
   
             <div class="btn-group" role="group">
               |<button type="submit" class="btn btn-success">Agregar</button>|
-              |<router-link :to="{ name: 'listar' }" class="btn btn-danger"
+              |<router-link :to="{ name: 'listarcliente' }" class="btn btn-danger"
                 >Cancelar</router-link
               >|
             </div>

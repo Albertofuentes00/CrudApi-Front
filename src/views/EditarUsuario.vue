@@ -10,7 +10,7 @@
                 type="text"
                 class="form-control"
                 name="User"
-                v-model="user"
+                v-model="datos.user"
                 aria-describedby="helpId"
                 id="user"
                 placeholder="Username"
@@ -26,7 +26,7 @@
                 class="form-control"
                 name="password"
                 id="password"
-                v-model="password"
+                v-model="datos.password"
                 aria-describedby="helpId"
                 placeholder="Proveedor"
               />
@@ -42,7 +42,7 @@
                 class="form-control"
                 name="precio"
                 id="precio"
-                v-model="FechaRegistro"
+                v-model="datos.FechaRegistro"
                 aria-describedby="helpId"
                 placeholder="Fecha"
               />
@@ -51,45 +51,29 @@
               >
             </div>
 
-            <div class="form-group">
-              <label for="">ID Empleado:</label>
-              <input
-                type="text"
-                class="form-control"
-                name="idEmpleado"
-                id="idEmpleado"
-                v-model="idEmpleado"
-                aria-describedby="helpId"
-                placeholder="ID de Empleado"
-              />
-              <small id="helpId" class="form-text" text-muted
-                >Ingresa el ID del Empleado</small
-              >
-            </div>
+            <label for="fkCliente">Seleccionar un Rol:</label>
+              <select id="fkCliente" v-model="datos.idRol" class="form-control">
+                <option v-for="rol in roles" :key="rol.iD_Rol" :value="rol.iD_Rol">
+                  {{rol.nombre}}
+                </option>
+              </select>
 
-            <div class="form-group">
-              <label for="">ID Rol:</label>
-              <input
-                type="text"
-                class="form-control"
-                name="idRol"
-                id="idRol"
-                v-model="idRol"
-                aria-describedby="helpId"
-                placeholder="ID de Rol"
-              />
-              <small id="helpId" class="form-text" text-muted
-                >Ingresa el ID del Rol</small
-              >
-            </div>
-  
+              <br>
+
+              <label for="fkCliente">Seleccionar un Empleado:</label>
+              <select id="fkCliente" v-model="datos.idEmpleado" class="form-control">
+                <option v-for="empleado in empleados" :key="empleado.iD_Empleado" :value="empleado.iD_Empleado">
+                  {{empleado.nombre}}
+                </option>
+              </select>
+
             <br />
   
             <div class="btn-group" role="group">
               |<button type="submit" 
               v-on:click="updateData(usuario.id)"
               class="btn btn-success"
-              >Agregar</button>|
+              >Guardar cambios</button>|
               
             </div>
           </form>
@@ -98,52 +82,69 @@
     </div>
   </template>
 
+
 <script>
-  import axios from 'axios';
-  
-  export default {
-    data() {
-      return {
-        id: '',
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      id: null,
+      datos: {
         user: '',
-        password:'',
-        fechaRegistro:'',
-        idEmpleado:'',
-        idRol:'',
-      };
-    },
-    mounted() {
-      const userId = this.$route.params.id;
-  
-      axios
-        .get("https://localhost:7204/Usuario/Leer"+userId)
+        password: '',
+        fechaRegistro: '',
+        idEmpleado: '',
+        idRol: ''
+      },
+      empleados: []
+    }
+  },
+  mounted() {
+    this.id = this.$route.params.id;
+    axios.get("https://localhost:7204/Usuario/BuscarPorID" + this.id)
+      .then(response => {
+        this.datos = response.data.result;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+    axios.get("https://localhost:7204/Usuario/Leer")
+      .then(response => {
+        this.clientes = response.data.result;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+      axios.get("https://localhost:7204/Rol/Leer")
+      .then(response => {
+        this.roles = response.data.result;
+      })
+      .catch(error => {
+        console.error(error);
+    });
+
+    axios.get("https://localhost:7204/Empleado/Leer")
+      .then(response => {
+        this.empleados = response.data.result;
+      })
+      .catch(error => {
+        console.error(error);
+    });
+  },
+  methods: {
+    submitForm() {
+      axios.put("https://localhost:7204/Usuario/Editar/" + this.id, this.datos)
         .then(response => {
-          this.id = response.data.result.id;
-          this.user = response.data.result.user;
-          this.password = response.data.result.password;
-          this.fechaRegistro = response.data.result.fechaRegistro;
-          this.idEmpleado = response.data.result.idEmpleado;
-          this.idRol = response.data.result.idRol;
+          console.log('Registro actualizado:', response.data.result);
+          this.$router.push('/listar')
         })
         .catch(error => {
           console.error(error);
         });
-    },
-    methods: {
-      updateData() {
-        const updatedData = {
-          nombre: this.nombre
-        };
-        axios
-          .put("https://localhost:7204/Usuario/Editar"+this.iD_Empleado, updatedData)
-          .then(response => {
-            console.log(response.data.result);
-            this.$router.push('/listar')
-          })
-          .catch(error => {
-            console.error(error);
-          });
-      },
-    },
-  };
-  </script>
+    }
+  }
+}
+</script>

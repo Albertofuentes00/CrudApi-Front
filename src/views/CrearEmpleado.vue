@@ -68,7 +68,7 @@
               >
             </div>
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="">ID Puesto:</label>
               <input
                 type="text"
@@ -98,13 +98,33 @@
               <small id="helpId" class="form-text" text-muted
                 >Ingresa el ID del departamento</small
               >
-            </div>
+            </div> -->
+
+            <label for="idPuesto">Seleccionar un Puesto:</label>
+              <select id="idPuesto" v-model="empleado.idPuesto" class="form-control">
+                <option v-for="puesto in puestos" :key="puesto.iD_Puesto" :value="puesto.iD_Puesto">
+                  {{puesto.nombre}}
+                </option>
+              </select>
+
+              <br>
+
+              <label for="idDepartamento">Seleccionar un Departamento:</label>
+              <select id="idDepaartamento" v-model="empleado.idDepartamento" class="form-control">
+                <option v-for="departamento in departamentos" :key="departamento.iD_Departamento" :value="departamento.iD_Departamento">
+                  {{departamento.nombre}}
+                </option>
+              </select>
+
+            <br />
+
+
 
             <br />
   
             <div class="btn-group" role="group">
               |<button type="submit" class="btn btn-success">Agregar</button>|
-              |<router-link :to="{ name: 'listar' }" class="btn btn-danger"
+              |<router-link :to="{ name: 'listarempleado' }" class="btn btn-danger"
                 >Cancelar</router-link
               >|
             </div>
@@ -120,7 +140,30 @@
     data() {
       return {
         empleado: {},
+        datos: {
+          idPuesto: 0,
+          idDepartamento: 0
+        },
+        puestos: [],
+        departamentos: []
       };
+    },
+    mounted() {
+      axios.get("https://localhost:7204/Puesto/Leer")
+        .then(response => {
+          this.puestos = response.data.result;
+        })
+        .catch(error => {
+          console.error(error);
+      });
+
+      axios.get("https://localhost:7204/Departamento/Consultar")
+        .then(response => {
+          this.departamentos = response.data.result;
+        })
+        .catch(error => {
+          console.error(error);
+      });
     },
   
     methods: {

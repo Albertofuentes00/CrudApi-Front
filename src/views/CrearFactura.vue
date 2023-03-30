@@ -52,7 +52,7 @@
             </div>
 
 
-            <div class="form-group">
+            <!-- <div class="form-group">
               <label for="">ID Cliente:</label>
               <input
                 type="text"
@@ -66,13 +66,22 @@
               <small id="helpId" class="form-text" text-muted
                 >Ingresa el ID del Cliente</small
               >
-            </div>
+            </div> -->
+
+            <label for="idCliente">Seleccionar un Cliente:</label>
+              <select id="idCliente" v-model="factura.idCliente" class="form-control">
+                <option v-for="cliente in clientes" :key="cliente.iD_Cliente" :value="cliente.iD_Cliente">
+                  {{cliente.nombre}}
+                </option>
+              </select>
+
+
 
             <br />
   
             <div class="btn-group" role="group">
               |<button type="submit" class="btn btn-success">Agregar</button>|
-              |<router-link :to="{ name: 'listar' }" class="btn btn-danger"
+              |<router-link :to="{ name: 'listarfactura' }" class="btn btn-danger"
                 >Cancelar</router-link
               >|
             </div>
@@ -88,9 +97,22 @@
     data() {
       return {
         factura: {},
+        datos:{
+          idCliente: 0
+        },
+        clientes: []
       };
     },
-  
+    mounted() {
+      axios.get("https://localhost:7204/Cliente/Leer")
+        .then(response => {
+          this.clientes = response.data.result;
+        })
+        .catch(error => {
+          console.error(error);
+      });
+
+    },
     methods: {
       agregarRegistro() {
         console.log(this.factura);
