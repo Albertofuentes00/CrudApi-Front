@@ -38,12 +38,21 @@
                       <i class="fa-solid fa-edit">Editar</i>
                      </router-link> &nbsp;
                     |
+                    
                   </div>
                 </td>
               </tr>
             </tbody>
           </table>
         </div>
+        <div class="btn-group" role="label" aria-label="">
+            <router-link to="/crearcliente" class="btn btn-primary"
+            >Nuevo cliente
+            </router-link> &nbsp;|
+            <router-link to="/dashboard" class="btn btn-secondary"
+            >Regresar
+            </router-link>
+      </div>
       </div>
     </div>
   </template>

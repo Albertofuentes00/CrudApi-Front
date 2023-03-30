@@ -12,36 +12,15 @@
                         <!--donde estan los simbolos de gato se pone la direcciona que se redireccionara-->
                          <li><li><RouterLink to="/dashboard">Home</RouterLink></li></li>
                          <hr id="line" size="2px" color="white" />
-                         <li id="Section"><p>Usuarios</p></li>
-                         <li><li><RouterLink to="/listar">Lista Usuarios</RouterLink></li></li>
-                         <li><li><RouterLink to="/crear">Nuevo Usuario</RouterLink></li></li>
-                         <hr id="line" size="2px" color="white" />
-                         <li id="Section"><p>Clientes</p></li>
-                         <li><li><RouterLink to="/listarcliente">Lista Clientes</RouterLink></li></li>
-                         <li><li><RouterLink to="/crearcliente">Nuevo cliente</RouterLink></li></li>
-                         <hr id="line" size="2px" color="white" />
-                         <li id="Section"><p>Empleados</p></li>
-                         <li><li><RouterLink to="/listarempleado">Lista Empleados</RouterLink></li></li>
-                         <li><li><RouterLink to="/crearempleado">Nuevo Empleado</RouterLink></li></li>
-                         <hr id="line" size="2px" color="white" />
-                         <li id="Section"><p>Facturas</p></li>
-                         <li><li><RouterLink to="/listarfactura">Lista Facturas</RouterLink></li></li>
-                         <li><li><RouterLink to="/crearfactura">Nueva Factura</RouterLink></li></li>
-                         <hr id="line" size="2px" color="white" />
-                         <li id="Section"><p>Roles</p></li>
-                         <li><li><RouterLink to="/listarRol">Lista Roles</RouterLink></li></li>
-                         <li><li><RouterLink to="/crearRol">Nuevo rol</RouterLink></li></li>
-                         <hr id="line" size="2px" color="white" />
-                         <li id="Section"><p>Puestos</p></li>
-                         <li><li><RouterLink to="/listarpuesto">Lista Puestos</RouterLink></li></li>
-                         <li><li><RouterLink to="/crearpuesto">Nuevo Puesto</RouterLink></li></li>
-                         <hr id="line" size="2px" color="white" />
-                         <li id="Section"><p>Departamentos</p></li>
-                         <li><li><RouterLink to="/listardepartment">Lista Depart</RouterLink></li></li>
-                         <li><li><RouterLink to="/creardepartment">Nuevo Depart</RouterLink></li></li>
+                         <li><li><RouterLink to="/listar">Usuarios</RouterLink></li></li>
+                         <li><li><RouterLink to="/listarcliente">Clientes</RouterLink></li></li>
+                         <li><li><RouterLink to="/listarempleado">Empleados</RouterLink></li></li>
+                         <li><li><RouterLink to="/listarfactura">Facturas</RouterLink></li></li>
+                         <li><li><RouterLink to="/listarRol">Roles</RouterLink></li></li>
+                         <li><li><RouterLink to="/listarpuesto">Puestos</RouterLink></li></li>
+                         <li><li><RouterLink to="/listardepartment">Departamentos</RouterLink></li></li>
                          <hr id="line" size="2px" color="white" />
                          <li><li><RouterLink to="/">Salir</RouterLink></li></li>
-                         <li><li><RouterLink to="/pureba">Ventana pureba</RouterLink></li></li>
                       </ul>
                      </div>
         </main>

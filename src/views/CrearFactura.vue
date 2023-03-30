@@ -22,17 +22,17 @@
             <div class="form-group">
               <label for="">Fecha:</label>
               <input
-                type="text"
-                class="form-control"
-                name="fecha"
-                id="fecha"
-                v-model="factura.fecha"
-                aria-describedby="helpId"
-                placeholder="fecha"
-              />
+              type="date"
+              class="form-control"
+              name="nombre"
+              id="apellidos"
+              v-model="factura.fecha"
+              aria-describedby="helpId"
+              placeholder="fecha"
+               />
               <small id="helpId" class="form-text" text-muted
-                >Ingresa la fecha dde factura</small
-              >
+              >Ingresa la fecha</small
+             >
             </div>
 
             <div class="form-group">

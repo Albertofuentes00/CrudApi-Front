@@ -35,6 +35,14 @@
             </tbody>
           </table>
         </div>
+        <div class="btn-group" role="label" aria-label="">
+            <router-link to="/crearRol" class="btn btn-primary"
+            >Nuevo rol
+            </router-link> &nbsp;|
+            <router-link to="/dashboard" class="btn btn-secondary"
+            >Regresar
+            </router-link>
+      </div>
       </div>
     </div>
   </template>

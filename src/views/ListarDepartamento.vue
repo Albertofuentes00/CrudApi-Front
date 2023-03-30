@@ -35,6 +35,15 @@
             </tbody>
           </table>
         </div>
+
+        <div class="btn-group" role="label" aria-label="">
+          <router-link to="/creardepartment" class="btn btn-primary"
+          >Nuevo departamento
+          </router-link> &nbsp;|
+          <router-link to="/dashboard" class="btn btn-secondary"
+            >Regresar
+            </router-link>
+        </div>
       </div>
     </div>
   </template>
@@ -78,6 +87,5 @@ export default {
   .thead{
     font-size: 20px;
   }
-
 
 </style>

@@ -86,7 +86,10 @@
             <br />
   
             <div class="btn-group" role="group">
-              |<button type="submit" class="btn btn-success">Agregar</button>|
+              |<button type="submit" 
+              v-on:click="updateData(usuario.id)"
+              class="btn btn-success"
+              >Agregar</button>|
               
             </div>
           </form>

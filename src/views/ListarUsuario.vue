@@ -33,7 +33,7 @@
                     >
                       Eliminar</button
                     >|
-                    |<router-link :to="{path:'/editarfactura'+usuario.id}" class="btn btn-warning">
+                    |<router-link :to="{path:'/editarusuario'+usuario.id}" class="btn btn-warning">
                       <i class="fa-solid fa-edit">Editar</i>
                      </router-link> &nbsp;|
                   </div>
@@ -42,6 +42,14 @@
             </tbody>
           </table>
         </div>
+        <div class="btn-group" role="label" aria-label="">
+            <router-link to="/crear" class="btn btn-primary"
+            >Nuevo Usuario
+            </router-link> &nbsp;|
+            <router-link to="/dashboard" class="btn btn-secondary"
+            >Regresar
+            </router-link>
+      </div>
       </div>
     </div>
   </template>

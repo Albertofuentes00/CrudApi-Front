@@ -138,7 +138,7 @@
           nombre: this.nombre
         };
         axios
-          .put("https://localhost:7204/Cliente/Editar"+this.iD_Cliente, updatedData)
+          .put("https://localhost:7204/Cliente/Editar/"+this.iD_Cliente, updatedData)
           .then(response => {
             console.log(response.data.result);
             this.$router.push('/listarcliente')

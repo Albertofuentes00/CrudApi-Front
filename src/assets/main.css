@@ -78,3 +78,14 @@ font-size:20px;
 div.card{
   size: 100px;
 }
+
+a.btn.btn-primary{
+  font-size: 20px;
+  flex: none;
+}
+
+a.btn.btn-secondary{
+  font-size: 20px;
+  flex: none;
+  position: relative;
+}

@@ -35,6 +35,14 @@
             </tbody>
           </table>
         </div>
+        <div class="btn-group" role="label" aria-label="">
+            <router-link to="/crearpuesto" class="btn btn-primary"
+            >Nuevo puesto
+            </router-link> &nbsp;|
+            <router-link to="/dashboard" class="btn btn-secondary"
+            >Regresar
+            </router-link>
+        </div>
       </div>
     </div>
   </template>
@@ -61,7 +69,7 @@ export default {
     borrarPuesto(iD_Puesto) {
       console.log(iD_Puesto);
 
-      axios.delete("https://localhost:7204/Puesto/Borrar/" + Id.toString());
+      axios.delete("https://localhost:7204/Puesto/Borrar" + Id);
       this.consultarPuestos();
       window.location.href = "Listarpuesto";
     },

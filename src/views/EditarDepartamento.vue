@@ -53,8 +53,10 @@ export default {
     axios
       .get("https://localhost:7204/Departamento/Consultar"+userId)
       .then(response => {
-        this.iD_Departamento = response.data.result.iD_Departamento;
-        this.nombre = response.data.result.nombre;
+
+        this.datos = response.data.result;
+        // this.iD_Departamento = response.data.result.iD_Departamento;
+        // this.nombre = response.data.result.nombre;
       })
       .catch(error => {
         console.error(error);

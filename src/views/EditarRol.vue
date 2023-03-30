@@ -11,7 +11,7 @@
                 type="text"
                 class="form-control"
                 name="User"
-                v-model="nombre"
+                v-model="datos.nombre"
                 aria-describedby="helpId"
                 id="user"
                 placeholder="Nuevo rol"
@@ -41,38 +41,42 @@
   export default {
     data() {
       return {
-        iD_Rol: '',
-        nombre: ''
-      };
+        id: null,
+        datos: {
+          nombre: '',
+        },
+        clientes: []
+      }
     },
     mounted() {
-      const userId = this.$route.params.id;
-  
-      axios
-        .get("https://localhost:7204/Rol/Leer"+userId)
+      this.id = this.$route.params.id;
+      axios.get("https://localhost:7204/Rol/Leer" + this.id)
         .then(response => {
-          this.iD_Rol = response.data.result.iD_Rol;
-          this.nombre = response.data.result.nombre;
+          this.datos = response.data.result;
+        })
+        .catch(error => {
+          console.error(error);
+        });
+  
+      axios.get("https://localhost:7204/Rol/")
+        .then(response => {
+          this.clientes = response.data.result;
         })
         .catch(error => {
           console.error(error);
         });
     },
     methods: {
-      updateData() {
-        const updatedData = {
-          nombre: this.nombre
-        };
-        axios
-          .put("https://localhost:7204/Rol/Editar"+this.iD_Rol, updatedData)
+      submitForm() {
+        axios.put("https://localhost:7204/Rol/Editar/" + this.id, this.datos)
           .then(response => {
-            console.log(response.data.result);
-            this.$router.push('/listarRol')
+            console.log('Registro actualizado:', response.data.result);
+            this.$router.push('/listarr')
           })
           .catch(error => {
             console.error(error);
           });
-      },
-    },
-  };
-  </script>
+      }
+    }
+  }
+</script>
