@@ -2,7 +2,7 @@
   <label id="header"></label><br><br><br>
   <div class="container">
     <div class="card">
-      <div class="card-header">Editar Usuario</div>
+      <div class="card-header">Editar Departamento</div>
       <div class="card-body">
         <form @submit.prevent="submitForm">
           <div class="form-group">
@@ -17,7 +17,7 @@
               placeholder="Nombre"
             />
             <small id="helpId" class="form-text" text-muted
-              >Ingresa el nombre del usuario</small
+              >Ingresa el nombre del departamento</small
             >
             </div>
           <br />
@@ -65,7 +65,7 @@ export default {
       axios.put("https://localhost:7204/Departamento/Editar/" + this.id, this.datos)
         .then(response => {
           console.log('Registro actualizado:', response.data.result);
-          this.$router.push('/listard')
+          this.$router.push('/listardepartment')
         })
         .catch(error => {
           console.error(error);

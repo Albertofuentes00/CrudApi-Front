@@ -46,7 +46,7 @@ export default {
   },
   mounted() {
     this.id = this.$route.params.id;
-    axios.get("https://localhost:7204/Rol/BuscarPorID" + this.id)
+    axios.get("https://localhost:7204/Rol/BuscarPorID/" + this.id)
       .then(response => {
         this.datos = response.data.result;
       })
