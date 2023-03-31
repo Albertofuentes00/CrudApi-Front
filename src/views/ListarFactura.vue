@@ -31,7 +31,7 @@
                   >
                     Eliminar</button
                   >|
-                  |<router-link :to="{path:'/editarfactura'+factura.iD_Factura}" class="btn btn-warning">
+                  |<router-link :to="{path:'/editarfactura/'+factura.iD_Factura}" class="btn btn-warning">
                     <i class="fa-solid fa-edit">Editar</i>
                    </router-link> &nbsp;|
                 </div>

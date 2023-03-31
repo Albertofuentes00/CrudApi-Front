@@ -83,7 +83,7 @@
   </template>
 
 
-<script>
+<!-- <script>
 import axios from 'axios';
 
 export default {
@@ -113,6 +113,76 @@ export default {
     axios.get("https://localhost:7204/Usuario/Leer")
       .then(response => {
         this.clientes = response.data.result;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+      axios.get("https://localhost:7204/Rol/Leer")
+      .then(response => {
+        this.roles = response.data.result;
+      })
+      .catch(error => {
+        console.error(error);
+    });
+
+    axios.get("https://localhost:7204/Empleado/Leer")
+      .then(response => {
+        this.empleados = response.data.result;
+      })
+      .catch(error => {
+        console.error(error);
+    });
+  },
+  methods: {
+    submitForm() {
+      axios.put("https://localhost:7204/Usuario/Editar/" + this.id, this.datos)
+        .then(response => {
+          console.log('Registro actualizado:', response.data.result);
+          this.$router.push('/listar')
+        })
+        .catch(error => {
+          console.error(error);
+        });
+    }
+  }
+}
+</script> -->
+
+
+<script>
+import axios from 'axios';
+
+export default {
+  data() {
+    return {
+      id: null,
+      datos: {
+        user: '',
+        password: '',
+        FechaRegistro: '',
+        idRol: '',
+        idEmpleado: ''
+      },
+
+      roles: [],
+      empleados: []
+
+    }
+  },
+  mounted() {
+    this.id = this.$route.params.id;
+    axios.get("https://localhost:7204/Usuario/BuscarPorID/" + this.id)
+      .then(response => {
+        this.datos = response.data.result;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+    axios.get("https://localhost:7204/Usuario/Leer")
+      .then(response => {
+        this.usuarios = response.data.result;
       })
       .catch(error => {
         console.error(error);

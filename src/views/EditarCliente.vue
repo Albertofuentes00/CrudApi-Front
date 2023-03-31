@@ -115,10 +115,10 @@
       };
     },
     mounted() {
-      const userId = this.$route.params.id;
+      const userId = this.$route.params.iD_Cliente;
   
       axios
-        .get("https://localhost:7204/Cliente/Leer"+userId)
+        .get("https://localhost:7204/Cliente/BuscarPorID/"+userId)
         .then(response => {
           this.iD_Cliente = response.data.result.iD_Cliente;
           this.nombre = response.data.result.nombre;
@@ -135,7 +135,13 @@
     methods: {
       updateData() {
         const updatedData = {
-          nombre: this.nombre
+          iD_Cliente: this.iD_Cliente,
+          nombre: this.nombre,
+          apellidos: this.apellidos,
+          telefono: this.telefono,
+          email: this.email,
+          direccion: this.direccion,
+          
         };
         axios
           .put("https://localhost:7204/Cliente/Editar/"+this.iD_Cliente, updatedData)

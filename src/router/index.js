@@ -101,7 +101,7 @@ const router = createRouter({
       component: ListarPuesto
     },
     {
-      path: '/editarpuesto:id',
+      path: '/editarpuesto/:id',
       name: 'editarpuesto',
       component: EditarPuesto
     },
@@ -116,7 +116,7 @@ const router = createRouter({
       component: ListarRol
     },
     {
-      path: '/editarRol:id',
+      path: '/editarRol/:id',
       name: 'editarRol',
       component: EditarRol
     },

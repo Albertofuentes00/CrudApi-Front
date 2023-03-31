@@ -35,7 +35,7 @@
                     >
                       Eliminar</button
                     >|
-                    |<router-link :to="{path:'/editarempleado'+empleado.iD_Empleado}" class="btn btn-warning">
+                    |<router-link :to="{path:'/editarempleado/'+empleado.iD_Empleado}" class="btn btn-warning">
                       <i class="fa-solid fa-edit">Editar</i>
                      </router-link> &nbsp;|
                   </div>

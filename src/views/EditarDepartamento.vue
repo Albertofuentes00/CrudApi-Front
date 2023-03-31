@@ -1,34 +1,28 @@
 <template>
+  <label id="header"></label><br><br><br>
   <div class="container">
     <div class="card">
-      <div class="card-header">Editar Departamento      </div>
+      <div class="card-header">Editar Usuario</div>
       <div class="card-body">
-
-        <form @submit.prevent="updateData">
+        <form @submit.prevent="submitForm">
           <div class="form-group">
-            <label for="">Nombre:</label>
+            <label for="">User:</label>
             <input
               type="text"
               class="form-control"
-              name="User"
-              v-model="nombre"
+              name="nombre"
+              v-model="datos.nombre"
               aria-describedby="helpId"
-              id="user"
-              placeholder="Nuevo departamento"
+              id="nombre"
+              placeholder="Nombre"
             />
             <small id="helpId" class="form-text" text-muted
-              >Ingresa el nombre del nuevo departamento</small
+              >Ingresa el nombre del usuario</small
             >
-          </div>
-
+            </div>
           <br />
 
-          <div class="btn-group" role="group">
-            |<button type="submit" 
-            v-on:click="updateData(departamento.iD_Departamento)"
-            class="btn btn-success">Guardar</button>|
-            >|
-          </div>
+          <button type="submit" class="btn btn-primary">Guardar cambios</button>
         </form>
       </div>
     </div>
@@ -41,42 +35,42 @@ import axios from 'axios';
 export default {
   data() {
     return {
-      iD_Departamento: '',
+      id: null,
       datos: {
         nombre: ''
       },
-    };
+      clientes: []
+    }
   },
   mounted() {
-    const userId = this.$route.params.id;
-
-    axios
-      .get("https://localhost:7204/Departamento/Consultar"+userId)
+    this.id = this.$route.params.id;
+    axios.get("https://localhost:7204/Departamento/ByID/" + this.id)
       .then(response => {
-
         this.datos = response.data.result;
-        // this.iD_Departamento = response.data.result.iD_Departamento;
-        // this.nombre = response.data.result.nombre;
+      })
+      .catch(error => {
+        console.error(error);
+      });
+
+    axios.get("https://localhost:7204/Departamento")
+      .then(response => {
+        this.clientes = response.data.result;
       })
       .catch(error => {
         console.error(error);
       });
   },
   methods: {
-    updateData() {
-      const updatedData = {
-        nombre: this.nombre
-      };
-      axios
-        .put("https://localhost:7204/Departamento/Editar"+this.iD_Departamento, this.datos)
+    submitForm() {
+      axios.put("https://localhost:7204/Departamento/Editar/" + this.id, this.datos)
         .then(response => {
-          console.log(response.data.result);
-          this.$router.push('/listardepartment')
+          console.log('Registro actualizado:', response.data.result);
+          this.$router.push('/listard')
         })
         .catch(error => {
           console.error(error);
         });
-    },
-  },
-};
+    }
+  }
+}
 </script>
